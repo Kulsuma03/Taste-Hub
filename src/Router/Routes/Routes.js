@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AllService from "../../Pages/AllService/AllService";
 import ErrorElement from "../../Pages/ErrorElement/ErrorElement";
-import Home from "../../Pages/Home/Home";
+import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +15,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
+                loader: () => fetch('https://assignment-11-server-seven.vercel.app/services'),
                 element: <Home></Home>
             },
             {
@@ -22,6 +25,16 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/allservice',
+                loader: () => fetch('https://assignment-11-server-seven.vercel.app/allservice'),
+                element: <AllService></AllService>
+            },
+            {
+                path: '/allservice/:id',
+                loader: ({params}) => fetch(`https://assignment-11-server-seven.vercel.app/allservice/${params.id}`),
+                element: <ServiceDetails></ServiceDetails>
             }
         ]
     }

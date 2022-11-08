@@ -10,7 +10,7 @@ const Footer = () => {
                         <div className="flex items-center justify-center w-12 h-12 rounded-full ">
                         <img className='w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkNlJQkFgPCo0J0Vf9oCLipneELDcf0-suHw&usqp=CAU" alt="" />
                         </div>
-                        <span className="self-center text-2xl font-semibold">Brand name</span>
+                        <span className="self-center text-2xl font-semibold">Taste Hub</span>
                     </Link>
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">

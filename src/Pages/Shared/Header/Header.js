@@ -21,7 +21,7 @@ const Header = () => {
 
 
     return (
-        <div className={`px-4 py-5 sticky top-0 z-50  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ${!navbar ? "bg-transparent " : "bg-white "}`}>
+        <div className={`px-4 py-5 sticky top-0 z-50  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ${!navbar ? "bg-transparent text-white " : "bg-white "}`}>
             <div className="relative flex items-center justify-between">
                 <Link
                     to="/"
@@ -31,7 +31,7 @@ const Header = () => {
                 >
                     <img className='w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkNlJQkFgPCo0J0Vf9oCLipneELDcf0-suHw&usqp=CAU" alt="" />
                     <span className="ml-2 text-xl font-bold tracking-wide uppercase">
-                        SK Health Care
+                    Taste Hub
                     </span>
                 </Link>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -39,18 +39,18 @@ const Header = () => {
                         <Link
                             to="/"
                             aria-label="Our product"
-                            title="Our product"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400"
+                            title="Home"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                         >
                             Home
                         </Link>
                     </li>
                     <li>
                         <Link
-                            to="/categories"
+                            to="/allservice"
                             aria-label="Our product"
-                            title="Our product"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400"
+                            title="Our Services"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                         >
                             Services
                         </Link>
@@ -60,7 +60,7 @@ const Header = () => {
                             to="/"
                             aria-label="About us"
                             title="About us"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                         >
                             About us
                         </Link>
@@ -70,27 +70,27 @@ const Header = () => {
                         <Link
                             to="/login"
                             aria-label="About us"
-                            title="About us"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400"
+                            title="Login"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                         >
                             Login
                         </Link>
                     </li>
                     {/* <li>
                         <p
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400 text-red-900"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7] text-red-900"
                         >
                             {user?.displayName}
                         </p>
                     </li> */}
                     <li>
                         <Link
-                            to="/signup"
+                            to="/register"
                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none"
                             aria-label="Sign up"
                             title="Sign up"
                         >
-                            Sign up
+                            Register
                         </Link>
                     </li>
                 </ul>
@@ -129,7 +129,7 @@ const Header = () => {
                                         >
                                             <img className='w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkNlJQkFgPCo0J0Vf9oCLipneELDcf0-suHw&usqp=CAU" alt="" />
                                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                Company
+                                            Taste Hub
                                             </span>
                                         </Link>
                                     </div>
@@ -156,17 +156,17 @@ const Header = () => {
                                                 to="/"
                                                 aria-label="Our product"
                                                 title="Our product"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                                             >
                                                 Home
                                             </Link>
                                         </li>
                                         <li>
                                             <Link
-                                                to="/categories"
+                                                to="/allservice"
                                                 aria-label="Our product"
                                                 title="Our product"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                                             >
                                                 Services
                                             </Link>
@@ -176,7 +176,7 @@ const Header = () => {
                                                 to="/"
                                                 aria-label="About us"
                                                 title="About us"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                                             >
                                                 About us
                                             </Link>
@@ -186,7 +186,7 @@ const Header = () => {
                                                 to="/login"
                                                 aria-label="About us"
                                                 title="About us"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-purple-400"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                                             >
                                                 Login
                                             </Link>
@@ -194,19 +194,19 @@ const Header = () => {
                                         {/* <li>
                                             <p
 
-                                                className="font-medium tracking-wide  transition-colors text-red-900 duration-200 hover:text-purple-400 "
+                                                className="font-medium tracking-wide  transition-colors text-red-900 duration-200 hover:text-[#C1D2D7] "
                                             >
                                                 {user?.displayName}
                                             </p>
                                         </li> */}
                                         <li>
                                             <Link
-                                                to="/signup"
+                                                to="/register"
                                                 className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none"
                                                 aria-label="Sign up"
                                                 title="Sign up"
                                             >
-                                                Sign up
+                                                Register
                                             </Link>
                                         </li>
                                     </ul>

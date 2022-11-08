@@ -16,7 +16,7 @@ const ErrorElement = () => {
                 <p className="text-3xl">
                     {error.statusText || error.message}
                 </p>
-                <Link rel="noopener noreferrer" to="/" className="px-8 py-3 font-semibold rounded bg-yellow-600 text-gray-900">Back to homepage</Link>
+                <Link rel="noopener noreferrer" to="/" className="px-8 py-3 font-semibold rounded bg-[#061724] text-white">Back to homepage</Link>
             </div>
         </section>
     );

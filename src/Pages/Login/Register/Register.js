@@ -8,7 +8,7 @@ const Register = () => {
             <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl mt-0 p-5 items-center">
 
                 <div className="md:w-1/2 px-8 md:px-16 shadow-md rounded-md">
-                    <h2 className="font-bold text-2xl text-[#F53313]">Register</h2>
+                    <h2 className="font-bold text-2xl text-[#061724]">Register</h2>
 
                     <form action="" className="flex flex-col gap-4">
                         <input className="p-2 mt-8 rounded-xl border" type="text" name="name" placeholder="Name" />
@@ -20,7 +20,7 @@ const Register = () => {
                                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                             </svg>
                         </div>
-                        <button type='submit' className="bg-[#061724]  rounded-xl text-white py-2 hover:scale-105 duration-300">Register</button>
+                        <button type='submit' className=" rounded-xl text-white py-2 hover:scale-105 duration-300 bg-[#08263f] focus:shadow-outline focus:outline-none">Register</button>
                     </form>
 
                     <div className="mt-6 grid grid-cols-3 items-center text-gray-400">
@@ -60,7 +60,7 @@ const Register = () => {
                     <div className="mt-3 pb-2 text-xs flex justify-between items-center text-[#061724]">
                         <p>Already have an account?</p>
                         <Link to='/login'>
-                            <button className="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300">Login</button>
+                            <button className="py-2 font-bold px-5 bg-white border rounded-xl hover:scale-110 text-[#08263f] duration-300">Login</button>
                         </Link>
                     </div>
                 </div>

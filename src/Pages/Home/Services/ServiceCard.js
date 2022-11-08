@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const ServiceCard = ({ service }) => {
     const { name, _id, rating, img, about, price } = service;
     console.log(_id);
@@ -25,10 +26,10 @@ const ServiceCard = ({ service }) => {
                     {about.length > 100 ? about.slice(0, 100) + '...' : about}
                 </p>
                 <div>
-                    <p className='font-bold text-orange-600'>
+                    <p className='font-bold text-orange-700'>
                         Price: ${price}
                     </p>
-                    <Link to={`/allservice/${_id}`}>
+                    <Link to={`/details/${_id}`}>
                         <button className='h-12 px-8 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none'>Details</button>
                     </Link>
                 </div>

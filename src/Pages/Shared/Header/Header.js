@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { FaHeartbeat } from "react-icons/fa";
+
 
 
 const Header = () => {

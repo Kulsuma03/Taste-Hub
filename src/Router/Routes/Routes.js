@@ -3,8 +3,10 @@ import Main from "../../Layout/Main";
 import AllService from "../../Pages/AllService/AllService";
 import ErrorElement from "../../Pages/ErrorElement/ErrorElement";
 import Home from "../../Pages/Home/Home/Home";
+import Services from "../../Pages/Home/Services/Services";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
+import Review from "../../Pages/Review/Review";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 
 export const router = createBrowserRouter([
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
                 path: '/details/:id',
                 loader: ({params}) => fetch(`https://assignment-11-server-seven.vercel.app/details/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>
+            },
+            {
+                path: '/services',
+                element: <Review></Review>
             }
         ]
     }

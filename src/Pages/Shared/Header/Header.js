@@ -51,7 +51,7 @@ const Header = () => {
                             to="/"
                             aria-label="Our product"
                             title="Home"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
                         >
                             Home
                         </Link>
@@ -61,7 +61,7 @@ const Header = () => {
                             to="/allservice"
                             aria-label="Our product"
                             title="Our Services"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
                         >
                             Services
                         </Link>
@@ -71,7 +71,7 @@ const Header = () => {
                             to="/myreview"
                             aria-label="About us"
                             title="About us"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
                         >
                             My Review
                         </Link>
@@ -85,7 +85,7 @@ const Header = () => {
                                         onClick={handleLogOut}
                                         aria-label="About us"
                                         title="Login"
-                                        className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                                        className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
                                     >
                                         Logout
                                     </button>
@@ -112,7 +112,7 @@ const Header = () => {
                                         to="/login"
                                         aria-label="About us"
                                         title="Login"
-                                        className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                                        className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
                                     >
                                         Login
                                     </Link>

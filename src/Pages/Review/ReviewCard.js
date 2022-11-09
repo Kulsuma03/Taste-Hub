@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ReviewCard = ({review}) => {
-    const {email, customer, userImg, message, serviceName} = review;
+    const {customer, userImg, message} = review;
     return (
         <div className="container flex flex-col ml-0 w-full p-6 divide-y rounded-md divide-gray-700 ">
             <div className="flex justify-between py-4">

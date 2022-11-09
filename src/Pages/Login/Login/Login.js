@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const [userEmail, setUserEmail] = useState('')
@@ -49,7 +50,7 @@ const Login = () => {
                         // local storage set jwt
 
                         localStorage.setItem('taste-token', data.token);
-                
+
                         form.reset()
                         navigate(from, { replace: true });
                         toast.success('Successfully log in');
@@ -84,7 +85,13 @@ const Login = () => {
     }
 
     return (
+
         <section className=" mt-0 flex items-center justify-center">
+
+            <Helmet>
+                <title>Login</title>
+                <meta name="description" content="Login" />
+            </Helmet>
 
             <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl mt-0 p-5 items-center">
 
@@ -92,7 +99,7 @@ const Login = () => {
                     <h2 className="font-bold text-2xl text-[#061724]">Login</h2>
 
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                        
+
                         <input className="p-2 rounded-xl border" type="email" name="email" placeholder="Email" required />
                         <div className="relative">
                             <input className="p-2 rounded-xl border w-full" type="password" name="password" placeholder="Password" />

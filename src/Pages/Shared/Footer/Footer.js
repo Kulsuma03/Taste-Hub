@@ -18,7 +18,7 @@ const Footer = () => {
                         <h3 className="tracking-wide uppercase text-gray-50">Product</h3>
                         <ul className="space-y-1">
                             <li>
-                                <Link rel="noopener noreferrer" to="/">Features</Link>
+                                <Link rel="noopener noreferrer" to="/">Services</Link>
                             </li>
                             <li>
                                 <Link rel="noopener noreferrer" to="/">Integrations</Link>

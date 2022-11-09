@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import MyReviewCard from './MyReviewCard';
@@ -60,6 +61,11 @@ const MyReview = () => {
     return (
         <div className='lg:w-4/5 mx-auto h-screen flex items-center justify-center'>
             <div className="overflow-x-auto w-full ">
+            <Helmet>
+                <title>MyReview</title>
+                <meta name="description" content="Login" />
+            </Helmet>
+
                 {
                     reviews.length !== 0 ?
                         <table className="table w-full py-44">

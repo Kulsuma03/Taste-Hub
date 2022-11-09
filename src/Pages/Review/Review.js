@@ -3,7 +3,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Review = ({ id, name, img }) => {
 
-    const { user } = useContext(AuthContext);
+    const { user, setReview } = useContext(AuthContext);
 
     const handleReview = event => {
         event.preventDefault();
@@ -24,6 +24,8 @@ const Review = ({ id, name, img }) => {
             img,
             
         }
+        
+        setReview(review)
 
         fetch('https://assignment-11-server-seven.vercel.app/review', {
             method: 'POST',

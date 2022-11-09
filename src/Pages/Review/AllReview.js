@@ -8,7 +8,7 @@ const AllReview = ({id}) => {
         .then(res => res.json())
         .then(data => {
             setReviews(data)
-            console.log(reviews)
+            // console.log(reviews)
         })
     },[])
     

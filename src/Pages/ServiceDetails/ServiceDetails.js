@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaStar } from "react-icons/fa";
 import Review from '../Review/Review';
-import ReviewCard from '../Review/AllReview';
 import AllReview from '../Review/AllReview';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const ServiceDetails = () => {
-    const {user} = useContext(AuthContext);
+    const {user,} = useContext(AuthContext);
+    
     const { name, _id, img, price, rating, about } = useLoaderData();
 
 
@@ -48,10 +48,15 @@ const ServiceDetails = () => {
             {/* create review  */}
 
             <div className="md:w-2/3 my-5 mx-auto p-4 shadow-md bg-gray-300 text-gray-900">
+                {/* <ReviewCard review={review}></ReviewCard> */}
                 <AllReview id={_id}></AllReview>
+
                 {
                    user?.uid ?
+                   <>
+                   
                    <Review id={_id} name={name} img={img}></Review>
+                   </>
                    :
                    <p className='p-4 text-2xl font-bold text-[#061724]'>Please Login! To add a Review</p>
                 }

@@ -30,7 +30,7 @@ const MyReviewCard = ({ review, handleReviewUpdate, handleDelete }) => {
 
             </td>
             <th>
-                <button onClick={handleDelete}>
+                <button onClick={() => handleDelete (_id)}>
                     <MdDeleteSweep className='text-3xl text-red-700'></MdDeleteSweep>
                 </button>
             </th>

@@ -25,7 +25,7 @@ const MyReview = () => {
             })
             .then(data => {
                 setReviews(data);
-                console.log(data);
+                // console.log(data);
             })
     }, [user?.email, logOut])
 
@@ -34,7 +34,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this review');
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`http://localhost:5000/reviewd/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('taste-token')}`

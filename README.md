@@ -4,7 +4,7 @@
 
 ## _Live Link
 
-Hosted in Firebase -> [Rainbow Academy Live link](https://rainbow-academy-50e27.web.app/)
+Hosted in Firebase -> [Taste Hub Live link](https://rainbow-academy-50e27.web.app/)
 
 ## technologies
 
@@ -20,6 +20,5 @@ Hosted in Firebase -> [Rainbow Academy Live link](https://rainbow-academy-50e27.
 ### Other Resources
 
 - React icons
-- React to Pdf
-- Tippy.js
+- react-photo-view
 - React hot toast

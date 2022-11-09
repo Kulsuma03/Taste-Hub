@@ -157,7 +157,7 @@ const Header = () => {
                     </button>
                     {isMenuOpen && (
                         <div className="absolute top-0 left-0 w-full">
-                            <div className="p-5 text-sky-400 bg-white border rounded shadow-sm">
+                            <div className="p-5 text-[#08263f] bg-white border rounded shadow-sm">
                                 <div className="flex items-center justify-between mb-4">
                                     <div>
                                         <Link
@@ -195,7 +195,7 @@ const Header = () => {
                                                 to="/"
                                                 aria-label="Our product"
                                                 title="Our product"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                                             >
                                                 Home
                                             </Link>
@@ -205,7 +205,7 @@ const Header = () => {
                                                 to="/allservice"
                                                 aria-label="Our product"
                                                 title="Our product"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                                             >
                                                 Services
                                             </Link>
@@ -215,7 +215,7 @@ const Header = () => {
                                                 to="/myreview"
                                                 aria-label="About us"
                                                 title="About us"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                                             >
                                                 My Review
                                             </Link>
@@ -225,7 +225,7 @@ const Header = () => {
                                                 to="/login"
                                                 aria-label="About us"
                                                 title="About us"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                                             >
                                                 Login
                                             </Link>

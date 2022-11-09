@@ -8,6 +8,8 @@ import Register from "../../Pages/Login/Register/Register";
 import MyReview from "../../Pages/MyReview/MyReview";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
+import PrivateRoute from "../PrivateRouter/PrivateRoute";
+
 
 export const router = createBrowserRouter([
     {
@@ -40,7 +42,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myreview',
-                element: <MyReview></MyReview>
+                element: <PrivateRoute><MyReview></MyReview></PrivateRoute>
             },
             {
                 path: '/siglereview/:id',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 
 const Services = ({ services }) => {
@@ -17,8 +18,10 @@ const Services = ({ services }) => {
             </div>
             <div className="mt-6 grid grid-cols-3 items-center text-gray-900">
                 <hr className="border-gray-900" />
-                <button className='text-center h-12 w-1/2 mx-auto font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none'>View All Services</button>
-                <hr className="border-gray-900" />
+                
+                    <Link to='/allservice' className='text-center py-3 w-full md:w-1/2 mx-auto font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none'>View All</Link>
+                    <hr className="border-gray-900" />
+                
             </div>
         </div>
 

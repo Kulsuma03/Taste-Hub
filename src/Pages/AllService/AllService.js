@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 import ServiceCard from '../Home/Services/ServiceCard';
 
 const AllService = () => {
-    const allService = useLoaderData([])
+    const allService = useLoaderData([]);
+    const {loading} = useContext(AuthContext)
     return (
         <div className="px-4 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pb-20">
-            <div className="p-6 mb-5 py-12 bg-white text-gray-900">
+            <div className="p-6 mb-5 py-12 bg-gray-300 text-gray-900">
                 <div className="container mx-auto">
                     <div className="flex flex-col lg:flex-row items-center justify-between">
                         <h2 className="text-center text-6xl tracking-tighter font-bold">Up to
@@ -22,8 +24,9 @@ const AllService = () => {
             </div>
 
             <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-
+               
                 {
+                    
                     allService.map(service => <ServiceCard
                         key={service.name}
                         service={service}

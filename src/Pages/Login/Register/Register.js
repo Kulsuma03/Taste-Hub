@@ -1,36 +1,66 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
-    const handleSignUp = event =>{
+    const {createUser, setUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
+    
+    const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
+        const photoURL = form.photoURL.value;
         const password = form.password.value;
+        console.log(name, email, photoURL, password);
+        
+        // create user email and password 
         
         createUser(email, password)
         .then(result => {
             const user = result.user;
+            toast.success('Successfully Sign up');
+            setUser(user)
+            handleUpdateUserProfile(name, photoURL)
             console.log(user);
+            form.reset();
+            navigate('/')
+            
         })
-        .catch(err => console.error(err));
+        .catch(error => {
+            toast.error(error.message)
+        })
+        
+    }
+
+     // update profile 
+    
+     const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName : name,
+            photoURL : photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(error => toast.error(error.message))
     }
 
     return (
-        <section className=" mt-10 flex items-center justify-center">
+        <section className=" mt-0 flex items-center justify-center">
 
             <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl mt-0 p-5 items-center">
 
                 <div className="md:w-1/2 px-8 md:px-16 shadow-md rounded-md">
                     <h2 className="font-bold text-2xl text-[#061724]">Register</h2>
 
-                    <form action="" className="flex flex-col gap-4">
-                        <input className="p-2 mt-8 rounded-xl border" type="text" name="name" placeholder="Name" />
-                        <input className="p-2 rounded-xl border" type="email" name="email" placeholder="Email" />
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                        <input className="p-2 mt-8 rounded-xl border" type="text" name="name" placeholder="Name" required />
+                        <input className="p-2 rounded-xl border" type="email" name="email" placeholder="Email" required />
+                        <input className="p-2 rounded-xl border" type="text" name="photoURL" placeholder="photoURL" required />
                         <div className="relative">
-                            <input className="p-2 rounded-xl border w-full" type="password" name="password" placeholder="Password" />
+                            <input className="p-2 rounded-xl border w-full" type="password" name="password" placeholder="Password" required />
                         </div>
                         <button type='submit' className=" rounded-xl text-white py-2 hover:scale-105 duration-300 bg-[#08263f] focus:shadow-outline focus:outline-none">Register</button>
                     </form>

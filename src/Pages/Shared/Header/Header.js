@@ -1,5 +1,8 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
+import { TbUserCircle } from "react-icons/tb";
 
 
 
@@ -7,7 +10,15 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [navbar, setNavbar] = useState(false);
 
-    // const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(toast.success('User logged out!'))
+            .catch(err => toast.error(err.message))
+            
+    }
+
+
     // console.log(user);
 
     const changeBackground = () => {
@@ -21,7 +32,7 @@ const Header = () => {
 
 
     return (
-        <div className={`px-4 py-5 sticky top-0 z-50  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ${!navbar ? "bg-transparent  " : "bg-gray-300 "}`}>
+        <div className={`px-4 py-5 sticky top-0 z-50  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ${!navbar ? "bg-transparent text-gray-100 " : "bg-gray-300 "}`}>
             <div className="relative flex items-center justify-between">
                 <Link
                     to="/"
@@ -31,7 +42,7 @@ const Header = () => {
                 >
                     <img className='w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkNlJQkFgPCo0J0Vf9oCLipneELDcf0-suHw&usqp=CAU" alt="" />
                     <span className="ml-2 text-xl font-bold tracking-wide uppercase">
-                    Taste Hub
+                        Taste Hub
                     </span>
                 </Link>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -40,7 +51,7 @@ const Header = () => {
                             to="/"
                             aria-label="Our product"
                             title="Home"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                         >
                             Home
                         </Link>
@@ -50,49 +61,77 @@ const Header = () => {
                             to="/allservice"
                             aria-label="Our product"
                             title="Our Services"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                         >
                             Services
                         </Link>
                     </li>
                     <li>
                         <Link
-                            to="/"
+                            to="/myreview"
                             aria-label="About us"
                             title="About us"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                         >
-                            About us
+                            My Review
                         </Link>
                     </li>
-                    {}
-                    <li>
-                        <Link
-                            to="/login"
-                            aria-label="About us"
-                            title="Login"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
-                        >
-                            Login
-                        </Link>
+                    {
+                        user?.uid ?
+                            <>
+
+                                <li>
+                                    <button
+                                        onClick={handleLogOut}
+                                        aria-label="About us"
+                                        title="Login"
+                                        className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                                    >
+                                        Logout
+                                    </button>
+                                </li>
+                                <li>
+                        {
+
+                            user?.photoURL
+                                ?
+
+                                <img src={user.photoURL} alt="" className="w-11 h-11 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+
+                                :
+                                <TbUserCircle className='w-8 h-8 '></TbUserCircle>
+
+                        }
                     </li>
-                    {/* <li>
-                        <p
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7] text-red-900"
-                        >
-                            {user?.displayName}
-                        </p>
-                    </li> */}
-                    <li>
-                        <Link
-                            to="/register"
-                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none"
-                            aria-label="Sign up"
-                            title="Sign up"
-                        >
-                            Register
-                        </Link>
-                    </li>
+
+                            </>
+                            :
+                            <>
+                                <li>
+                                    <Link
+                                        to="/login"
+                                        aria-label="About us"
+                                        title="Login"
+                                        className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                                    >
+                                        Login
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="/register"
+                                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none"
+                                        aria-label="Sign up"
+                                        title="Sign up"
+                                    >
+                                        Register
+                                    </Link>
+                                </li>
+                            </>
+                    }
+
+                    
+
                 </ul>
                 <div className="lg:hidden">
                     <button
@@ -129,7 +168,7 @@ const Header = () => {
                                         >
                                             <img className='w-10' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkNlJQkFgPCo0J0Vf9oCLipneELDcf0-suHw&usqp=CAU" alt="" />
                                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                            Taste Hub
+                                                Taste Hub
                                             </span>
                                         </Link>
                                     </div>
@@ -173,12 +212,12 @@ const Header = () => {
                                         </li>
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/myreview"
                                                 aria-label="About us"
                                                 title="About us"
                                                 className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#C1D2D7]"
                                             >
-                                                About us
+                                                My Review
                                             </Link>
                                         </li>
                                         <li>
@@ -191,14 +230,7 @@ const Header = () => {
                                                 Login
                                             </Link>
                                         </li>
-                                        {/* <li>
-                                            <p
-
-                                                className="font-medium tracking-wide  transition-colors text-red-900 duration-200 hover:text-[#C1D2D7] "
-                                            >
-                                                {user?.displayName}
-                                            </p>
-                                        </li> */}
+                                        
                                         <li>
                                             <Link
                                                 to="/register"

@@ -3,11 +3,11 @@ import Main from "../../Layout/Main";
 import AllService from "../../Pages/AllService/AllService";
 import ErrorElement from "../../Pages/ErrorElement/ErrorElement";
 import Home from "../../Pages/Home/Home/Home";
-import Services from "../../Pages/Home/Services/Services";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Register/Register";
-import Review from "../../Pages/Review/Review";
+import MyReview from "../../Pages/MyReview/MyReview";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
+import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
 
 export const router = createBrowserRouter([
     {
@@ -39,9 +39,15 @@ export const router = createBrowserRouter([
                 element: <ServiceDetails></ServiceDetails>
             },
             {
-                path: '/services',
-                element: <Review></Review>
+                path: '/myreview',
+                element: <MyReview></MyReview>
+            },
+            {
+                path: '/siglereview/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/singlereview/${params.id}`),
+                element: <UpdateReview></UpdateReview>
             }
+         
         ]
     }
 ])

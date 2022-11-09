@@ -17,14 +17,16 @@ const UpdateReview = () => {
         fetch(`http://localhost:5000/updatereview/${_id}`, {
           method: "PUT",
           headers: {
-            "content-type": "application/json"
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem('taste-token')}`
           },
           body: JSON.stringify(review)
         })
         .then(res => res.json())
         .then(data => {
+            console.log(data);
           if(data.modifiedCount){
-            toast.success(data.message);
+            alert(data.message);
             navigate("/myreview")
           } else {
             toast.err(data.error)

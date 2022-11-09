@@ -29,7 +29,7 @@ const MyReview = () => {
             })
     }, [user?.email, logOut])
 
-   //    handleDelete 
+    //    handleDelete 
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this review');
@@ -59,42 +59,54 @@ const MyReview = () => {
 
     return (
         <div className='lg:w-4/5 mx-auto h-screen flex items-center justify-center'>
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
+            <div className="overflow-x-auto w-full ">
+                {
+                    reviews.length !== 0 ?
+                        <table className="table w-full py-44">
 
-                    <thead>
-                        <tr>
-                            <th>
+                            <thead>
+                                <tr>
+                                    <th>
 
-                            </th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            reviews.map(review => <MyReviewCard
-                                key={review._id}
-                                review={review}
-                                handleDelete={handleDelete}
-                                handleReviewUpdate={handleReviewUpdate}
-                            ></MyReviewCard>)
-                        }
-                    </tbody>
+                                    </th>
+                                    <th>Service Name & Image</th>
+                                    <th>Your Review</th>
+                                    <th>Edit Review</th>
+                                    <th>Delete Review</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </tfoot>
+                                {
+                                    reviews.map(review => <MyReviewCard
+                                        key={review._id}
+                                        review={review}
+                                        handleDelete={handleDelete}
+                                        handleReviewUpdate={handleReviewUpdate}
+                                    ></MyReviewCard>)
+                                }
 
-                </table>
+
+
+
+                            </tbody>
+
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                        :
+                        <div className='bg-gray-300 w-full py-44'>
+                            <h2 className='text-center text-bold text-5xl'>You Have no Reviews</h2>
+                        </div>
+                }
             </div>
         </div>
     );

@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
-import { Helmet } from 'react-helmet';
+import useTitle from '../../../hooks/useTitle';
 
 const Register = () => {
     const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    useTitle('Register')
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -51,10 +53,7 @@ const Register = () => {
     return (
         <section className=" mt-0 flex items-center justify-center">
 
-            <Helmet>
-                <title>Register</title>
-                <meta name="description" content="Login" />
-            </Helmet>
+            
 
             <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl mt-0 p-5 items-center">
 

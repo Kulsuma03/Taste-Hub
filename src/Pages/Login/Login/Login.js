@@ -3,14 +3,15 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
 import { Helmet } from 'react-helmet';
+import useTitle from '../../../hooks/useTitle';
 
 const Login = () => {
     const [userEmail, setUserEmail] = useState('')
+
+    useTitle('Login')
     const {
         signInWithGoogle,
         logIn,
-        resetPassword,
-        user,
         setLoading,
 
     } = useContext(AuthContext);
@@ -88,10 +89,7 @@ const Login = () => {
 
         <section className=" mt-0 flex items-center justify-center">
 
-            <Helmet>
-                <title>Login</title>
-                <meta name="description" content="Login" />
-            </Helmet>
+           
 
             <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl mt-0 p-5 items-center">
 

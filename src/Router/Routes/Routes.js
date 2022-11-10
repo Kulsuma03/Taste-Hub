@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import AddService from "../../Pages/AddService/AddService";
 import AllService from "../../Pages/AllService/AllService";
+import Blog from "../../Pages/Blog/Blog";
 import ErrorElement from "../../Pages/ErrorElement/ErrorElement";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
@@ -48,6 +50,14 @@ export const router = createBrowserRouter([
                 path: '/siglereview/:id',
                 loader: ({params}) => fetch(`http://localhost:5000/singlereview/${params.id}`),
                 element: <UpdateReview></UpdateReview>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
+                path: '/addservice',
+                element: <AddService></AddService>
             }
          
         ]

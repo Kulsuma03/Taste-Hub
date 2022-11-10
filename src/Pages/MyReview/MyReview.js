@@ -61,10 +61,7 @@ const MyReview = () => {
     return (
         <div className='lg:w-4/5 mx-auto h-screen flex items-center justify-center'>
             <div className="overflow-x-auto w-full ">
-            <Helmet>
-                <title>MyReview</title>
-                <meta name="description" content="Login" />
-            </Helmet>
+           
 
                 {
                     reviews.length !== 0 ?

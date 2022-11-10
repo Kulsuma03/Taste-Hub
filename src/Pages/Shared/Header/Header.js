@@ -15,7 +15,7 @@ const Header = () => {
         logOut()
             .then(toast.success('User logged out!'))
             .catch(err => toast.error(err.message))
-            
+
     }
 
 
@@ -56,16 +56,37 @@ const Header = () => {
                             Home
                         </Link>
                     </li>
+                    
                     <li>
-                        <Link
-                            to="/allservice"
-                            aria-label="Our product"
-                            title="Our Services"
-                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
-                        >
-                            Services
-                        </Link>
-                    </li>
+                                            <Link
+                                                to="/blog"
+                                                aria-label="Our product"
+                                                title="Our Blog"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
+                                            >
+                                                Blog
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="/allservice"
+                                                aria-label="Our product"
+                                                title="All Service"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
+                                            >
+                                                Services
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="/addservice"
+                                                aria-label="Our product"
+                                                title="Add Service"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
+                                            >
+                                                Add  Service
+                                            </Link>
+                                        </li>
                     <li>
                         <Link
                             to="/myreview"
@@ -84,25 +105,25 @@ const Header = () => {
                                     <button
                                         onClick={handleLogOut}
                                         aria-label="About us"
-                                        title="Login"
+                                        title="LogOut"
                                         className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
                                     >
                                         Logout
                                     </button>
                                 </li>
                                 <li>
-                        {
+                                    {
 
-                            user?.photoURL
-                                ?
+                                        user?.photoURL
+                                            ?
 
-                                <img src={user.photoURL} alt="" className="w-11 h-11 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+                                            <img src={user.photoURL} alt="" className="w-11 h-11 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
 
-                                :
-                                <TbUserCircle className='w-8 h-8 '></TbUserCircle>
+                                            :
+                                            <TbUserCircle className='w-8 h-8 '></TbUserCircle>
 
-                        }
-                    </li>
+                                    }
+                                </li>
 
                             </>
                             :
@@ -130,14 +151,14 @@ const Header = () => {
                             </>
                     }
 
-                    
+
 
                 </ul>
                 <div className="lg:hidden">
                     <button
                         aria-label="Open Menu"
                         title="Open Menu"
-                        className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-purple-50 focus:bg-purple-50"
+                        className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline bg-white hover:bg-purple-50 focus:bg-purple-50"
                         onClick={() => setIsMenuOpen(true)}
                     >
                         <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
@@ -202,9 +223,19 @@ const Header = () => {
                                         </li>
                                         <li>
                                             <Link
+                                                to="/blog"
+                                                aria-label="Our product"
+                                                title="Our Blog"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                                            >
+                                                Blog
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
                                                 to="/allservice"
                                                 aria-label="Our product"
-                                                title="Our product"
+                                                title="All Service"
                                                 className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                                             >
                                                 Services
@@ -212,35 +243,78 @@ const Header = () => {
                                         </li>
                                         <li>
                                             <Link
+                                                to="/addservice"
+                                                aria-label="Our product"
+                                                title="Add Service"
+                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
+                                            >
+                                                Add  Service
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
                                                 to="/myreview"
                                                 aria-label="About us"
-                                                title="About us"
+                                                title="My Review"
                                                 className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
                                             >
                                                 My Review
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link
-                                                to="/login"
-                                                aria-label="About us"
-                                                title="About us"
-                                                className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F]"
-                                            >
-                                                Login
-                                            </Link>
-                                        </li>
-                                        
-                                        <li>
-                                            <Link
-                                                to="/register"
-                                                className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none"
-                                                aria-label="Sign up"
-                                                title="Sign up"
-                                            >
-                                                Register
-                                            </Link>
-                                        </li>
+                                        {
+                                            user?.uid ?
+                                                <>
+
+                                                    <li>
+                                                        <button
+                                                            onClick={handleLogOut}
+                                                            aria-label="About us"
+                                                            title="Login"
+                                                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
+                                                        >
+                                                            Logout
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        {
+
+                                                            user?.photoURL
+                                                                ?
+
+                                                                <img src={user.photoURL} alt="" className="w-11 h-11 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+
+                                                                :
+                                                                <TbUserCircle className='w-8 h-8 '></TbUserCircle>
+
+                                                        }
+                                                    </li>
+
+                                                </>
+                                                :
+                                                <>
+                                                    <li>
+                                                        <Link
+                                                            to="/login"
+                                                            aria-label="About us"
+                                                            title="Login"
+                                                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-[#08263F] hover:bg-gray-300 p-1"
+                                                        >
+                                                            Login
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            to="/register"
+                                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none"
+                                                            aria-label="Sign up"
+                                                            title="Sign up"
+                                                        >
+                                                            Register
+                                                        </Link>
+                                                    </li>
+                                                </>
+                                        }
+
                                     </ul>
                                 </nav>
                             </div>

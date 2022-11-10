@@ -12,7 +12,7 @@ const AllReview = ({ id }) => {
                 setReviews(data)
                 // console.log(reviews)
             })
-    }, [])
+    }, [reviews])
 
 
     return (
@@ -25,7 +25,7 @@ const AllReview = ({ id }) => {
                         review={review}
                     ></ReviewCard>)
                 }
-            </div>
+            </div> 
         </div>
     );
 };

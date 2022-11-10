@@ -55,7 +55,7 @@ const Login = () => {
 
                         form.reset()
                         navigate(from, { replace: true });
-                        toast.success('Successfully log in');
+                        alert('Successfully log in');
 
                         // console.log(user);
                     });
@@ -63,7 +63,7 @@ const Login = () => {
 
             })
             .catch(error => {
-                toast.error(error.message)
+                alert(error.message)
             })
             .finally(() => {
                 setLoading(false)

@@ -35,7 +35,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this review');
         if (proceed) {
-            fetch(`http://localhost:5000/reviewd/${id}`, {
+            fetch(`https://assignment-11-server-seven.vercel.app/reviewd/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('taste-token')}`

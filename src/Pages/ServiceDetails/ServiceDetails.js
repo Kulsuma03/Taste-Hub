@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar } from "react-icons/fa";
 import Review from '../Review/Review';
 import AllReview from '../Review/AllReview';
 import { AuthContext } from '../../contexts/AuthProvider';
+import AddReview from '../AddReview/AddReview';
+import PrivateRoute from '../../Router/PrivateRouter/PrivateRoute';
 
 const ServiceDetails = () => {
     const {user,} = useContext(AuthContext);
@@ -58,7 +60,7 @@ const ServiceDetails = () => {
                    <Review id={_id} name={name} img={img}></Review>
                    </>
                    :
-                   <p className='p-4 text-2xl font-bold text-[#061724]'>Please Login! To add a Review</p>
+                  <AddReview></AddReview>
                 }
             </div>
 

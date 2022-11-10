@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/siglereview/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/singlereview/${params.id}`),
+                loader: ({params}) => fetch(`https://assignment-11-server-seven.vercel.app/singlereview/${params.id}`),
                 element: <UpdateReview></UpdateReview>
             },
             {

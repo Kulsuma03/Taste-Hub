@@ -5,6 +5,7 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 const UpdateReview = () => {
     const {_id, img, message, serviceName,} = useLoaderData();
     const navigate = useNavigate();
+    console.log(_id)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -14,8 +15,8 @@ const UpdateReview = () => {
           
         }
     
-        fetch(`http://localhost:5000/updatereview/${_id}`, {
-          method: "PUT",
+        fetch(`https://assignment-11-server-seven.vercel.app/updatereview/${_id}`, {
+          method: "PATCH",
           headers: {
             "content-type": "application/json",
             authorization: `Bearer ${localStorage.getItem('taste-token')}`
@@ -25,12 +26,7 @@ const UpdateReview = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-          if(data.modifiedCount){
-            alert(data.message);
-            navigate("/myreview")
-          } else {
-            toast.err(data.error)
-          }
+         
         })
         .catch(err => toast.error(err.message))
       }

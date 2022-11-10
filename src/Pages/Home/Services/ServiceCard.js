@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { AuthContext } from '../../../contexts/AuthProvider';
+import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 
 
 const ServiceCard = ({ service }) => {
     const { name, _id, rating, img, about, price } = service;
+    const { loading } = useContext(AuthContext);
 
+    if (loading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
     return (
         <div className="overflow-hidden transition-shadow duration-300 bg-gray-300 rounded shadow-sm">
-           
+
             <PhotoProvider>
                 <PhotoView src={img}>
                     <img className="object-cover cursor-pointer w-full h-64" src={img} alt="" />

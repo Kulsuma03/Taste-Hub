@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Review = ({ id, name, img }) => {
+    useTitle('Review')
 
     const { user, setReview } = useContext(AuthContext);
 
@@ -11,7 +13,8 @@ const Review = ({ id, name, img }) => {
         const message = form.message.value;
         const email = user?.email;
         const customer = user?.displayName;
-        const userImg = user?.photoURL
+        const userImg = user?.photoURL;
+        const date = new Date().toLocaleString('en-GB')
         console.log(userImg);
 
         const review = {
@@ -22,6 +25,7 @@ const Review = ({ id, name, img }) => {
             customer,
             userImg,
             img,
+            date
             
         }
         
@@ -53,7 +57,7 @@ const Review = ({ id, name, img }) => {
         <div>
             <form onSubmit={handleReview}>
 
-                <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Review" required></textarea>
+                <textarea name="message" className="textarea my-10 textarea-bordered h-24 w-full" placeholder="Your Review" required></textarea>
 
                 <input className='font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#08263f] hover:bg-[#061724] focus:shadow-outline focus:outline-none p-3' type="submit" value="Add Review" />
             </form>

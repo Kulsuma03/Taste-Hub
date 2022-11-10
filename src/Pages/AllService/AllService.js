@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import ServiceCard from '../Home/Services/ServiceCard';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const AllService = () => {
+    useTitle('Services')
     const allService = useLoaderData([]);
     const { loading } = useContext(AuthContext)
     if (loading) {
@@ -13,12 +15,6 @@ const AllService = () => {
     }
     return (
         <div className="px-4 pb-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pb-20">
-
-            <Helmet>
-                <title>AllServices</title>
-                <meta name="description" content="Login" />
-            </Helmet>
-
 
             <div className="p-6 mb-5 py-12 bg-gray-300 text-gray-900">
                 <div className="container mx-auto">
